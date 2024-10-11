@@ -13,7 +13,7 @@ Cloning the Repo and Collaborating
 Clone the Repository:
 Each developer can clone the repository to their local machine using:
 
-git clone https://github.com/your-username/project-repo.git
+git clone (link to repo)
 
 Branching Workflow:
 Developers should create and switch to new branches for any feature or bug fix:
