@@ -62,6 +62,7 @@ public class HMSApplication {
                     System.out.print("Enter registration ID: ");
                     String registrationId = scanner.nextLine();
                     patientService.registerPatient(name, age, contactNumber, email, registrationId);
+                                             System.out.println();
                     break;
 
                 case 2:
@@ -72,6 +73,7 @@ public class HMSApplication {
                     System.out.print("Enter contact number: ");
                     String docContactNumber = scanner.nextLine();
                     doctorService.addDoctor(doctorName, specialization, docContactNumber);
+                                             System.out.println();
                     break;
 
                 case 3:
@@ -92,6 +94,7 @@ public class HMSApplication {
                     } else {
                         System.out.println("Patient not found.");
                     }
+                                             System.out.println();
                     break;
 
                 case 4:
@@ -105,6 +108,7 @@ public class HMSApplication {
                     } else {
                         System.out.println("Patient not found.");
                     }
+                                             System.out.println();
                     break;
 
                 case 5:
@@ -112,6 +116,7 @@ public class HMSApplication {
                     for (Patient p : patientService.getPatients()) {
                         System.out.println("Name: " + p.getName() + ", Age: " + p.getAge());
                     }
+                                             System.out.println();
                     break;
 
                 case 6:
@@ -119,6 +124,7 @@ public class HMSApplication {
                     for (Appointment appt : appointmentService.getAppointments()) {
                         System.out.println("Patient: " + appt.getPatient().getName() + ", Doctor: " + appt.getDoctor().getName() + ", Date: " + appt.getDateTime());
                     }
+                                             System.out.println();
                     break;
 
                 case 7:
@@ -126,6 +132,7 @@ public class HMSApplication {
                     for (Report r : reportService.getReports()) {
                         System.out.println("Patient: " + r.getPatient().getName() + ", Details: " + r.getDetails());
                     }
+                                             System.out.println();
                     break;
 
                 case 8:
@@ -137,6 +144,7 @@ public class HMSApplication {
                     } else {
                         System.out.println("Patient not found.");
                     }
+                                             System.out.println();
                     break;
 
                 case 9:
