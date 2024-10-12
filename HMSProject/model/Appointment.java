@@ -4,7 +4,9 @@ public class Appointment {
     private Patient patient;
     private Doctor doctor;
     private String dateTime;
-
+//remove private 
+    //add beds for common people
+    //type of illness
     public Appointment(Patient patient, Doctor doctor, String dateTime) {
         this.patient = patient;
         this.doctor = doctor;
