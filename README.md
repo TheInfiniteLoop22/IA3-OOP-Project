@@ -8,20 +8,13 @@
   Devadathan <br>
 </h4>
 
-Cloning the Repo and Collaborating
+Patient admission -> room availability -> track duration
+Reallocate the room to new admissions
+Doctor availability
+help desk? - intergrate initial screening features?
+  - check for doctor avilable and schedule appointments here
+  - patients can choose from multiple doctors if multiple docs are available
 
-Clone the Repository:
-Each developer can clone the repository to their local machine using:
+Docs can prescribe a list of medicines - feature
 
-git clone (link to repo)
-
-Branching Workflow:
-Developers should create and switch to new branches for any feature or bug fix:
-
-git checkout -b feature-new-feature
-
-After making changes, they can push the branch to the remote repo:
-
-git push origin feature-new-feature
-
-Once reviewed, the changes can be merged into the main branch via a Pull Request.
+  
