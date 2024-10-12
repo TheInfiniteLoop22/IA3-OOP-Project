@@ -7,7 +7,8 @@ public class Hospital {
     private List<Patient> patients;
     private List<Doctor> doctors;
     private List<Report> reports;
-
+//remove private
+    
     public Hospital() {
         patients = new ArrayList<>();
         doctors = new ArrayList<>();
