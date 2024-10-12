@@ -1,4 +1,4 @@
-package service;
+package model;
 
 import model.Patient;
 import java.util.Scanner;
