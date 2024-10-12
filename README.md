@@ -8,13 +8,25 @@
   Devadathan <br>
 </h4>
 
-Patient admission -> room availability -> track duration
-Reallocate the room to new admissions
-Doctor availability
-help desk? - intergrate initial screening features?
-  - check for doctor avilable and schedule appointments here
-  - patients can choose from multiple doctors if multiple docs are available
+<b>Additional Features and Notes:</b>
+<ol>
+  <li>Patient admission -> room availability -> track duration</li>
+  <li>Reallocate the room to new admissions</li>
+  <li>
+    <ol>
+      <li>help desk? - intergrate initial screening features?</li>
+      <li>check for doctor avilable and schedule appointments here</li>
+      <li></li>patients can choose from multiple doctors if multiple docs are available</li>
+    </ol>
+  <li>Patient admission -> room availability -> track duration</li>
+  <li>Doctor availability</li>
+  <li>Docs can prescribe a list of medicines - feature</li>
+</ol>
 
-Docs can prescribe a list of medicines - feature
+
+
+
+
+
 
   
