@@ -12,6 +12,8 @@ import service.PatientService;
 import service.ReportService;
 import service.OnlineDiagnosis;
 
+//added comment
+
 import java.util.Scanner;
 
 public class HMSApplication {
