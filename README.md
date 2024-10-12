@@ -23,6 +23,15 @@
   <li>Docs can prescribe a list of medicines - feature</li>
 </ol>
 
+<ol>
+  
+<li>ADD SCHEME CLASS, add discount options,</li>
+<li>ADD EMERGENCY CLASS, variables like EMERGENCY DOCTORS,ICU beds</li>
+<li>ADD ROOM class</li>
+<li>ADD HELPDESK </li>
+
+</ol>
+
 
 
 
