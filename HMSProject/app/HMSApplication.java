@@ -10,7 +10,7 @@ import service.AppointmentService;
 import service.DoctorService;
 import service.PatientService;
 import service.ReportService;
-import service.OnlineDiagnosis;
+import model.OnlineDiagnosis;
 
 
 
