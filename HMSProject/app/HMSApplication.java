@@ -11,7 +11,7 @@ import service.DoctorService;
 import service.PatientService;
 import service.ReportService;
 import model.OnlineDiagnosis;
-
+// import scheme and emergency classes
 
 
 import java.util.Scanner;
@@ -37,6 +37,9 @@ public class HMSApplication {
             System.out.println("7. View Reports");
             System.out.println("8. Online Diagnosis");
             System.out.println("9. Exit");
+            //add option for emergency and in that create a switch for several 
+            //create a emergency class and scheme class in services folder
+            
             System.out.print("Please choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
