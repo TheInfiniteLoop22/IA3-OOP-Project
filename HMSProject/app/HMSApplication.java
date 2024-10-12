@@ -22,7 +22,7 @@ public class HMSApplication {
         DoctorService doctorService = new DoctorService(hospital);
         AppointmentService appointmentService = new AppointmentService(hospital);
         ReportService reportService = new ReportService(hospital);
-        OnlineDiagnosis onlineDiagnosis = new OnlineDiagnosis(); // Create an instance of OnlineDiagnosis
+        OnlineDiagnosis onlineDiagnosis = new OnlineDiagnosis(); 
 
         while (true) {
             System.out.println("Welcome to the Hospital Management System");
@@ -33,43 +33,43 @@ public class HMSApplication {
             System.out.println("5. View Patients");
             System.out.println("6. View Appointments");
             System.out.println("7. View Reports");
-            System.out.println("8. Online Diagnosis"); // New option for online diagnosis
+            System.out.println("8. Online Diagnosis");
             System.out.println("9. Exit");
             System.out.print("Please choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
-                case 1: // Register Patient
+                case 1: 
                     System.out.print("Enter patient name: ");
                     String name = scanner.nextLine();
                     System.out.print("Enter age: ");
                     while (!scanner.hasNextInt()) {
                         System.out.print("Invalid input. Please enter a valid age: ");
-                        scanner.next(); // Consume the invalid input
+                        scanner.next(); 
                     }
-                    int age = scanner.nextInt();  // Read age as int
-                    scanner.nextLine(); // Consume newline
+                    int age = scanner.nextInt();
+                    scanner.nextLine();
                     System.out.print("Enter contact number: ");
                     String contactNumber = scanner.nextLine();
                     System.out.print("Enter email: ");
                     String email = scanner.nextLine();
                     System.out.print("Enter registration ID: ");
                     String registrationId = scanner.nextLine();
-                    patientService.registerPatient(name, age, contactNumber, email, registrationId); // Pass as int
+                    patientService.registerPatient(name, age, contactNumber, email, registrationId);
                     break;
 
-                case 2: // Add Doctor
+                case 2:
                     System.out.print("Enter doctor name: ");
                     String doctorName = scanner.nextLine();
                     System.out.print("Enter specialization: ");
                     String specialization = scanner.nextLine();
-                    System.out.print("Enter contact number: "); // Added contact number
-                    String docContactNumber = scanner.nextLine(); // Added contact number for doctor
-                    doctorService.addDoctor(doctorName, specialization, docContactNumber); // Adjusted parameters
+                    System.out.print("Enter contact number: ");
+                    String docContactNumber = scanner.nextLine();
+                    doctorService.addDoctor(doctorName, specialization, docContactNumber);
                     break;
 
-                case 3: // Schedule Appointment
+                case 3:
                     System.out.print("Enter patient name: ");
                     String pName = scanner.nextLine();
                     Patient patient = findPatientByName(patientService, pName);
@@ -89,7 +89,7 @@ public class HMSApplication {
                     }
                     break;
 
-                case 4: // Create Report
+                case 4:
                     System.out.print("Enter patient name: ");
                     String reportPatientName = scanner.nextLine();
                     Patient reportPatient = findPatientByName(patientService, reportPatientName);
@@ -102,39 +102,39 @@ public class HMSApplication {
                     }
                     break;
 
-                case 5: // View Patients
+                case 5:
                     System.out.println("Patients:");
                     for (Patient p : patientService.getPatients()) {
                         System.out.println("Name: " + p.getName() + ", Age: " + p.getAge());
                     }
                     break;
 
-                case 6: // View Appointments
+                case 6:
                     System.out.println("Appointments:");
                     for (Appointment appt : appointmentService.getAppointments()) {
                         System.out.println("Patient: " + appt.getPatient().getName() + ", Doctor: " + appt.getDoctor().getName() + ", Date: " + appt.getDateTime());
                     }
                     break;
 
-                case 7: // View Reports
+                case 7:
                     System.out.println("Reports:");
                     for (Report r : reportService.getReports()) {
                         System.out.println("Patient: " + r.getPatient().getName() + ", Details: " + r.getDetails());
                     }
                     break;
 
-                case 8: // Online Diagnosis
+                case 8:
                     System.out.print("Enter patient name: ");
                     String diagnosisPatientName = scanner.nextLine();
                     Patient diagnosisPatient = findPatientByName(patientService, diagnosisPatientName);
                     if (diagnosisPatient != null) {
-                        onlineDiagnosis.diagnose(diagnosisPatient); // Call the diagnose method
+                        onlineDiagnosis.diagnose(diagnosisPatient);
                     } else {
                         System.out.println("Patient not found.");
                     }
                     break;
 
-                case 9: // Exit
+                case 9:
                     System.out.println("Exiting the application.");
                     scanner.close();
                     return;
