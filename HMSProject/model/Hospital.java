@@ -8,6 +8,7 @@ public class Hospital {
     private List<Doctor> doctors;
     private List<Report> reports;
 //remove private
+        //add beds for common people
     
     public Hospital() {
         patients = new ArrayList<>();
