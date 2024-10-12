@@ -5,7 +5,7 @@ public class Appointment {
     private Doctor doctor;
     private String dateTime;
 //remove private 
-    //add beds for common people
+    //count-- for beds when a patient is added
     //type of illness
     public Appointment(Patient patient, Doctor doctor, String dateTime) {
         this.patient = patient;
