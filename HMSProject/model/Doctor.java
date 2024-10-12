@@ -4,7 +4,7 @@ public class Doctor {
     private String name;
     private String specialization;
     private String contactNumber;
-
+//make hardcode , dont take inputs for doctors
     public Doctor(String name, String specialization, String contactNumber) {
         this.name = name;
         this.specialization = specialization;
