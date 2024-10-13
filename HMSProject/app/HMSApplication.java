@@ -63,6 +63,7 @@ public class HMSApplication {
                     String registrationId = scanner.nextLine();
                     patientService.registerPatient(name, age, contactNumber, email, registrationId);
                                              System.out.println();
+                    //take illness as input
                     break;
 
                 case 2:
@@ -104,6 +105,7 @@ public class HMSApplication {
                     if (reportPatient != null) {
                         System.out.print("Enter report details: ");
                         String reportDetails = scanner.nextLine();
+                        //what are we entering in his report?
                         reportService.createReport(reportPatient, reportDetails);
                     } else {
                         System.out.println("Patient not found.");
@@ -115,6 +117,7 @@ public class HMSApplication {
                     System.out.println("Patients:");
                     for (Patient p : patientService.getPatients()) {
                         System.out.println("Name: " + p.getName() + ", Age: " + p.getAge());
+                        
                     }
                                              System.out.println();
                     break;
