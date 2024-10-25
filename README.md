@@ -11,7 +11,7 @@
 <div>
   <h4>Commands to compile and run:</h4>
   <p>Compile: javac hospitalmanagementsystem/*.java</p>
-  <p>Run: hospitalmanagementsystem.HospitalManagementSystem</p>
+  <p>Run: java hospitalmanagementsystem.HospitalManagementSystem</p>
 </div>
 <b>Additional Features and Notes:</b>
 <ol>
