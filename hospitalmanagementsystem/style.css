@@ -1,0 +1,148 @@
+/* Background for Welcome Page */
+.root {
+    -fx-background-image: url("p1.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+
+}
+
+.card {
+    -fx-background-color: #E3F2FD; /* Background color */
+    -fx-border-color: #cccccc; /* Border color */
+    -fx-border-radius: 15; /* Border radius */
+    -fx-background-radius: 15; /* Background radius */
+    -fx-padding: 10; /* Padding inside the card */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 0); /* Optional shadow effect */
+}
+
+
+/* Background for Main Page */
+.vbox-navigation {
+    -fx-background-image: url("p2.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+/* Background for Second Page */
+.vbox-navigation.second-page {
+    -fx-background-image: url("p3.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+/* Styles for Buttons */
+.button {
+    -fx-background-color: #00A6FB; /* Shiny Green */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0.5, 0, 1);
+    -fx-cursor: hand;
+    -fx-padding: 10;
+    -fx-transition: all 0.3s;
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Specific button colors */
+.button-emergency {
+    -fx-background-color: orange;
+}
+
+.button-exit {
+    -fx-background-color: red;
+}
+
+.button-nav {
+    -fx-background-color: yellow;
+}
+
+/* Style for Welcome Label */
+.welcome-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    /* -fx-text-border: 1px solid white;  */
+}
+
+/* Empty IDs for easy editing */
+#email-field {
+    /* Styles for Email Field */
+}
+
+#password-field {
+    /* Styles for Password Field */
+}
+
+
+
+#login-button {
+    /* Styles for Login Button */
+}
+
+#register-button {
+    /* Styles for Register Button */
+    -fx-background-image: url("p3.jpg");
+}
+
+#emergency-button {
+    /* Styles for Emergency Handling Button */
+}
+
+#exit-button {
+    /* Styles for Exit Button */
+}
+
+#next-page-button {
+    /* Styles for Next Page Button */
+}
+
+#allocate-bed-button {
+    /* Styles for Allocate Bed Button */
+}
+
+#screening-button {
+    /* Styles for Initial Screening Button */
+}
+
+#book-appointment-button {
+    /* Styles for Book Appointment Button */
+}
+
+#display-data-button {
+    /* Styles for Display Data Button */
+}
+
+#faq-button {
+    /* Styles for FAQ Button */
+}
+
+#previous-page-button {
+    /* Styles for Previous Page Button */
+}
+
+/* Empty classes for text elements */
+.text-header {
+    /* Styles for header texts */
+}
+
+.text-body {
+    /* Styles for body texts */
+}
+
+.text-footer {
+    /* Styles for footer texts */
+}
+
+.text-dialog-header {
+    /* Styles for dialog box header */
+}
+
+.text-dialog-body {
+    /* Styles for dialog box body */
+    -fx-background-image: url("p3.jpg");
+}
+
+/* Additional styles can be added here as needed */
