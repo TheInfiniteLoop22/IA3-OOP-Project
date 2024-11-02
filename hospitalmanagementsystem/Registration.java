@@ -3,7 +3,9 @@ package hospitalmanagementsystem;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.util.Callback;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -57,6 +59,20 @@ public class Registration {
         TextField medicalHistoryField = new TextField();
         medicalHistoryField.setPromptText("Medical History");
 
+        // Attach file button
+        Button attachFileButton = new Button("Attach File");
+        Label fileNameLabel = new Label("No file selected"); // Label to show file name
+
+        // File chooser action
+        attachFileButton.setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select a File");
+            File file = fileChooser.showOpenDialog(dialog.getDialogPane().getScene().getWindow());
+            if (file != null) {
+                fileNameLabel.setText(file.getName()); // Show the selected file name
+            }
+        });
+
         // Layout for the fields
         GridPane grid = new GridPane();
         grid.setHgap(10);
@@ -78,6 +94,8 @@ public class Registration {
         grid.add(dobPicker, 1, 7);
         grid.add(new Label("Medical History:"), 0, 8);
         grid.add(medicalHistoryField, 1, 8);
+        grid.add(attachFileButton, 0, 9); // Attach File button
+        grid.add(fileNameLabel, 1, 9); // Label to display file name
 
         // Add content to the dialog
         dialog.getDialogPane().setContent(new VBox(grid));
@@ -94,13 +112,10 @@ public class Registration {
                     int age = ageBox.getValue();
                     LocalDate dob = dobPicker.getValue();
                     String medicalHistory = medicalHistoryField.getText();
-                     Patient p=new Patient(name, gender, contactNumber, bloodGroup, dob.toString(), medicalHistory, age);
+                    Patient p = new Patient(name, gender, contactNumber, bloodGroup, dob.toString(), medicalHistory, age);
                     BedAllocation.addPatient(p);
 
-
-
-
-// Return a new Patient object
+                    // Return the new Patient object
                     return p;
                 }
                 return null;

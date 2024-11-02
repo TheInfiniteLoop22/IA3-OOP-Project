@@ -21,7 +21,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import static javafx.geometry.Pos.CENTER;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Rectangle;
 
 public class MAIN extends Application {
     public Registration registration = new Registration();
@@ -31,43 +33,43 @@ public class MAIN extends Application {
     public EmergencyHandler emergencyHandler = new EmergencyHandler();
     public Info info = new Info(); // Create an instance of Info
 
-    private Stage primaryStage;
+    private Stage stage;
     private Scene welcomeScene;
     private Scene mainScene;
     private Scene secondScene;
 
     @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public void start(Stage stage) {
+        this.stage = stage;
         createWelcomePage();
         createMainPage();
         createSecondPage();
 
-        primaryStage.setScene(welcomeScene); // Start with the welcome scene
-        primaryStage.setTitle("Hospital Management System");
-        primaryStage.show();
+        stage.setScene(welcomeScene); // Start with the welcome scene
+        stage.setTitle("Hospital Management System");
+        stage.show();
     }
 
     private void createWelcomePage() {
         VBox vbox = new VBox(10);
         vbox.setAlignment(javafx.geometry.Pos.CENTER);
 
-        Label welcomeLabel = new Label("Welcome to the Hospital Management System");
-        welcomeLabel.setId("welcome-label");
-        welcomeLabel.setFont(new Font("Arial", 20)); // Increase title font size
+        Label welcomeLabel = new Label("Welcome to the Hospital");
+       // Increase title font size
 
         Button loginButton = new Button("Login");
         loginButton.setId("login-button");
 
         // Set styles for welcome page
         welcomeLabel.getStyleClass().add("welcome-label");
-        loginButton.getStyleClass().add("button-login");
+        
 
         // Prompt for email and password on login button click
-        loginButton.setOnAction(e -> {
+        loginButton.setOnAction(e -> 
+        {
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setTitle("Login");
-            dialog.setHeaderText("Enter your email and password:");
+            dialog.setHeaderText("Enter email and password:");
 
             // Create fields for email and password
             GridPane grid = new GridPane();
@@ -80,10 +82,8 @@ public class MAIN extends Application {
             PasswordField passwordField = new PasswordField();
             passwordField.setId("password-field");
 
-            grid.add(new Label("Email:"), 0, 0);
-            grid.add(emailField, 1, 0);
-            grid.add(new Label("Password:"), 0, 1);
-            grid.add(passwordField, 1, 1);
+            grid.add(new Label("Email:"), 0, 0);    grid.add(emailField, 1, 0);
+            grid.add(new Label("Password:"), 0, 1); grid.add(passwordField, 1, 1);
 
             dialog.getDialogPane().setContent(grid);
             dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
@@ -92,7 +92,7 @@ public class MAIN extends Application {
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 // Proceed to main scene if credentials are entered
-                primaryStage.setScene(mainScene);
+                stage.setScene(mainScene);
             }
         });
 
@@ -103,45 +103,47 @@ public class MAIN extends Application {
 //// ///// ////
 private void createMainPage() {
     VBox vbox = new VBox(10);
-    vbox.setAlignment(javafx.geometry.Pos.CENTER); // Center alignment
+    vbox.setAlignment(CENTER); // Center alignment
 
     // HBox for the main page card layout
     HBox hbox = new HBox(30);
-    hbox.setAlignment(javafx.geometry.Pos.CENTER);
+    hbox.setAlignment(CENTER);
 
-    // Create buttons and their corresponding card layout for the main page
+    // Create card-style buttons for the main page
     hbox.getChildren().addAll(
-        createCard("Register Patient", "register.jpg", e -> registration.registerPatient()),
-        createCard("Emergency Handling", "emergency.jpg", e -> handleEmergency()),
-        createCard("Exit", "exit.jpg", e -> {
-            showAlert("Exit", "Exiting system. Thank you!");
-            primaryStage.close();
-        })
+        createCard("Register Patient", "Registration.jpg", e -> registration.registerPatient()),
+        createCard("Emergency", "emergency.jpg", e -> handleEmergency()),
+        createCard("Next", "next.jpg", e -> stage.setScene(secondScene)) // "Next" as a card
     );
 
     vbox.getChildren().addAll(hbox);
 
-    // Add buttons for navigation
-    Button nextPageButton = new Button("Next");
-    nextPageButton.setId("next-page-button");
-    nextPageButton.getStyleClass().add("button-nav");
-    nextPageButton.setOnAction(e -> primaryStage.setScene(secondScene));
+    // "Exit" as a standard button
+    Button exitButton = new Button("Exit");
+    
+    exitButton.getStyleClass().add("button-exit");
+    exitButton.setPrefSize(250, 50);
+    exitButton.setOnAction(e -> {
+        showAlert("Exit", "Exiting system. Thank you!");
+        stage.close();
+    });
 
-    vbox.getChildren().addAll(nextPageButton);
+    vbox.getChildren().add(exitButton); // Add exit button below the cards
     mainScene = new Scene(vbox, 300, 250);
     mainScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 }
+
 /////////////////////////
 private void createSecondPage() {
     VBox vbox = new VBox(30);
-    vbox.setAlignment(javafx.geometry.Pos.CENTER); // Center alignment
+    vbox.setAlignment(CENTER); // Center alignment
     vbox.getStyleClass().add("vbox-navigation");
 
     // HBox for row layout
     HBox hbox1 = new HBox(30);
-    hbox1.setAlignment(javafx.geometry.Pos.CENTER);
+    hbox1.setAlignment(CENTER);
     HBox hbox2 = new HBox(30);
-    hbox2.setAlignment(javafx.geometry.Pos.CENTER);
+    hbox2.setAlignment(CENTER);
 
     // Create buttons and their corresponding card layout
     hbox1.getChildren().addAll(
@@ -153,7 +155,7 @@ private void createSecondPage() {
     hbox2.getChildren().addAll(
         createCard("Display Data", "data.jpg", e -> HardCodedData.displayInfo()),
         createCard("FAQ Section", "faq.jpg", e -> info.displayFAQ()),
-        createCard("Previous Page", "prev.jpg", e -> primaryStage.setScene(mainScene))
+        createCard("Previous Page", "prev.jpg", e -> stage.setScene(mainScene))
     );
 
     // Add HBoxes to the main VBox
@@ -166,7 +168,7 @@ private void createSecondPage() {
     exitButton.setPrefSize(250, 50); // Increase size
     exitButton.setOnAction(e -> {
         showAlert("Exit", "Exiting system. Thank you!");
-        primaryStage.close();
+        stage.close();
     });
 
     vbox.getChildren().add(exitButton);
@@ -175,26 +177,32 @@ private void createSecondPage() {
 }
 
 /////////////////////
+///////////////////////
+////////////////////////
+
 private VBox createCard(String buttonText, String imagePath, EventHandler<ActionEvent> eventHandler) {
     VBox card = new VBox();
-    card.setAlignment(javafx.geometry.Pos.CENTER);
+    card.setAlignment(CENTER);
     card.setSpacing(15);
     
-    // Set styles for rounded corners and background color
-    card.setStyle("-fx-background-color: #ffffff; " + // Background color
-                   "-fx-border-color: #cccccc; " + // Border color
-                   "-fx-border-radius: 15; " + // Border radius
-                   "-fx-background-radius: 15; " + // Background radius
-                   "-fx-padding: 10;"); // Padding inside the card
 
+  card.getStyleClass().add("card");
     // Image
     ImageView imageView;
     try {
         Image image = new Image(getClass().getResourceAsStream(imagePath));
         imageView = new ImageView(image);
+         
         imageView.setFitWidth(200);
         imageView.setFitHeight(200);
-    } catch (NullPointerException e) {
+        
+       Rectangle clip = new Rectangle(200, 200);
+clip.setArcWidth(15); 
+clip.setArcHeight(15);
+imageView.setClip(clip);
+
+    }
+    catch (NullPointerException e) {
         System.err.println("Image not found: " + imagePath);
         imageView = new ImageView(); // Fallback to empty ImageView if not found
     }

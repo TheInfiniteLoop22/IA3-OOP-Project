@@ -8,38 +8,15 @@ public class HardCodedData {
     public static void displayInfo() {
         StringBuilder infoBuilder = new StringBuilder();
 
-        // Hospital Information Header
+       
         infoBuilder.append("\n----- Hospital Information -----\n");
-
-        // Display Departments and Doctors
-        infoBuilder.append("Departments and Doctors:\n");
-        Info.departments.forEach(department -> {
-            infoBuilder.append("\n").append(department).append(" Department:\n");
-            Info.doctors.get(department).forEach(doctor -> infoBuilder.append(" - ").append(doctor).append("\n"));
-        });
 
         // Display Consultation and Medicine Costs
         infoBuilder.append("\nConsultation Fee: $").append(Info.CONSULTATION_FEE).append("\n");
         infoBuilder.append("Medicine Cost (fixed): $").append(Info.MEDICINE_COST).append("\n");
 
-        // Display symptom-to-disease mapping
-        infoBuilder.append("\nSymptom to Disease Mapping:\n");
-        Info.symptomToDisease.forEach((symptom, disease) -> {
-            infoBuilder.append("Symptom: ").append(symptom).append(" -> Disease: ").append(disease).append("\n");
-        });
+      
 
-        // Display disease severity levels
-        infoBuilder.append("\nDisease Severity Levels:\n");
-        Info.diseaseSeverity.forEach((disease, severity) -> {
-            infoBuilder.append("Disease: ").append(disease).append(" -> Severity: ").append(severity).append("\n");
-        });
-
-        // Display available treatments
-        infoBuilder.append("\nTreatments:\n");
-        Info.treatments.forEach((disease, treatmentList) -> {
-            infoBuilder.append("Disease: ").append(disease).append(" -> Treatment: ")
-                       .append(String.join(", ", treatmentList)).append("\n");
-        });
 
         // Display discount schemes
         infoBuilder.append("\nDiscount Schemes:\n");
@@ -50,7 +27,7 @@ public class HardCodedData {
 
         infoBuilder.append("\n--------------------------------");
 
-        // Show information in a JavaFX Alert
+      
         Alert infoAlert = new Alert(AlertType.INFORMATION);
         infoAlert.setTitle("Hospital Information");
         infoAlert.setHeaderText(null);

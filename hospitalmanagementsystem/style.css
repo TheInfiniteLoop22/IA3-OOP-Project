@@ -39,6 +39,9 @@
     -fx-cursor: hand;
     -fx-padding: 10;
     -fx-transition: all 0.3s;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 50px;
+
 }
 
 .button:hover {
@@ -89,6 +92,7 @@
 
 #emergency-button {
     /* Styles for Emergency Handling Button */
+    -fx-background-color: orange;
 }
 
 #exit-button {
